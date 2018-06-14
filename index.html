@@ -1,1 +1,175 @@
-ttt
+<html><style type="text/css">
+.men{
+color:red;
+position:absolute;
+left:60px;
+top:0px;
+}
+.men1{
+left:0px;
+}
+.tz{color:red;
+position:absolute;
+left:300px;
+top:30px;
+}
+#hid, #hid1{
+background-color:rgba(255,255,255, 0.6);
+border:1px black solid;
+position:absolute;
+left:265px;
+top:30px;
+visibility:hidden;
+}
+#hid{left:10px;width:245px;}
+#hid1{width:265px;}
+#ic, #ic1{
+position:absolute;
+right:0px;
+}
+#body{
+background-color:grey;
+margin:0px;
+padding:0px;
+height:100%;
+overflow:hidden;
+}
+iframe{
+width:100%;
+Height:100%;
+margin:0px;
+padding:0px;
+top:0px;
+left:0px;
+}
+fieldset{width:44px;margin:0px;padding:0px;display:inline}
+</style>
+<body scroll=no id=body>
+<iframe id="spiel" width=100% height=100% src="https://espritgames.com/de/dragonborn/go/">Kein Iframe!!!!!</iframe>
+
+
+<input class="men men1" type=button value="Events" onclick='javascript:document.getElementById("hid").style.visibility="visible"'>
+<div id=hid>
+<input id=ic type=button value="x" onclick='javascript:document.getElementById("hid").style.visibility="hidden"'>
+<br>
+<div id="di"></div>
+</div>
+<input class=men type=button value="Reload" onclick='javascript:document.getElementById("hid1").style.visibility="visible"'>
+<div id=hid1>
+<input id=ic1 type=button value="x" onclick='javascript:document.getElementById("hid1").style.visibility="hidden"'>
+<br>
+<div id="di1">Neuladen Intervall:<br>
+<form onchange=fsrel(this)>
+<fieldset>
+    <legend>Aus:</legend>
+<input type=radio name=relz value=0 checked>
+</fieldset>
+<fieldset>
+    <legend>test:3min</legend>
+<input type=radio name=relz value="3">
+</fieldset>
+<fieldset>
+    <legend>30min</legend>
+<input type=radio name=relz value="30">
+</fieldset>
+<fieldset>
+    <legend>1h</legend>
+<input type=radio name=relz value="60">
+</fieldset>
+<fieldset>
+    <legend>2h:</legend>
+<input type=radio name=relz value="120">
+</fieldset>
+<div id="di2"></div>
+</form>
+</div>
+</div>
+<audio id="idau" 
+ src="http://archive.hoerspielbox.de/3-3-10002.mp3?_=1"
+  type="audio/mp3" 
+>
+    .
+</audio>
+</body>
+<script type="text/javascript">
+
+var cival=0
+var civalr=0
+function fsrel(ff){
+if(civalr){window.clearInterval(civalr)}
+
+fx=document.getElementsByName("relz")
+for (var i=0; i<fx.length; i++) {
+      if (fx[i].checked === true) {
+      fw = fx[i].value;
+   }
+}
+if(fw>0){
+civalr=window.setInterval(function(){document.getElementById("spiel").src="https://espritgames.com/de/dragonborn/go/"},fw*1000*60)
+}
+document.getElementById("di2").innerHTML="Reloadintervall="+fw
+}
+function mkwz(a,b,c,d){
+var dateobj=new Date()
+var inz=new Date()
+var thtim=[dateobj.getHours(),dateobj.getMinutes(),dateobj.getSeconds()]
+var wzc=[]
+var wzct="<table border=0 width='240px'>"
+var wzi=0
+var wzit=""
+var wziz=new Date()
+	for(iz in a){
+		for(ik of c[iz]){
+			if(d[ik]){
+			twz=a[iz].split(":")
+				if(thtim[0]<twz[0]?1:thtim[0]==twz[0]&&thtim[1]<twz[1]?1:0){
+//				inz=dateobj
+				inz.setHours(twz[0],twz[1],0)
+					wzc.push([inz-1,b[ik]])
+					wzct+="<tr><td>"+a[iz]+"</td><td>"+b[ik].slice(1)+"</td><td><span class=clt>a</span></td></tr>"
+if(wzi==0){
+//wziz=inz-1;
+//wzit=wzct;
+if(cival>0){clearInterval(cival)}
+cival=window.setInterval(function(){
+dateobj=new Date();
+//document.getElementById("tz").innerHTML=fSek((wziz-dateobj)/1000)
+var x = document.getElementsByClassName("clt");
+for (i = 0; i < x.length; i++) {
+ //   x[i].style.backgroundColor = "red";
+    x[i].innerHTML=fSek((wzc[i][0]-dateobj)/1000)
+}
+},1000);
+
+window.setTimeout(function(){
+document.getElementById("idau").play()
+window.setTimeout(ini,1000)
+ }, ((inz-dateobj)-60*1000)>10?(inz-dateobj)-60*1000:(inz-dateobj))};
+					wzi++
+				}
+			}
+		}
+	}
+document.getElementById("di").innerHTML=wzct+"</table>"
+//setInterval(function(){ document.location=document.location; }, 20*1000);
+}
+//toLocaleDateString('de-DE')
+function f0(z){return (z<10?"0":"")+parseInt(z);}
+function fSek(s) {
+  s = Math.abs(s)
+  return f0((s/60/60)%24) + ":" +f0((s/60)%60) + ":" + f0(s%60);
+}
+
+
+function ini(){
+		var wz1=["15:22","13:00","14:00","14:05","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:05","19:30","20:00","20:39","21:00","21:09","22:01"]
+		var wrt=["0Arena-Preise","1Goblins","2SALE","3Quiz","4Schatz","5Eindringlinge","6Chaos","7Gildenschlacht","8Schlachtfeld"]
+		var wzk=[[2]	,[2,3]	,[1,2]	,[4]	,[1]	,[1,2]	,[1]	,[1,2,5],[1]	,[1,2]	,[1]	,[1,2]	,[1]	,[1,2]	,[4]	,[1]	,[2,6]	,[7]	,[2]	,[8]	,[0]]
+		var wzo=[1,1,1,1,1,1,1,1,1,1];
+		mkwz(wz1,wrt,wzk,wzo)
+}
+window.onload=ini();
+
+</script>
+
+</html>
