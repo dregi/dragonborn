@@ -5,6 +5,12 @@ position:absolute;
 left:60px;
 top:0px;
 }
+.men2{
+color:red;
+position:absolute;
+left:122px;
+top:0px;
+}
 .men1{
 left:0px;
 }
@@ -13,17 +19,18 @@ position:absolute;
 left:300px;
 top:30px;
 }
-#hid, #hid1{
-background-color:rgba(255,255,255, 0.6);
+#hid, #hid1, #hid2{
+background-color:rgba(255,255,255, 0.7);
 border:1px black solid;
 position:absolute;
 left:265px;
 top:30px;
 visibility:hidden;
 }
+#hid2{left:555px;width:285px;}
 #hid{left:10px;width:245px;}
-#hid1{width:265px;}
-#ic, #ic1{
+#hid1{width:275px;}
+#ic, #ic1, #ic2{
 position:absolute;
 right:0px;
 }
@@ -49,12 +56,15 @@ fieldset{width:44px;margin:0px;padding:0px;display:inline}
 
 
 <input class="men men1" type=button value="Events" onclick='javascript:document.getElementById("hid").style.visibility="visible"'>
+
 <div id=hid>
 <input id=ic type=button value="x" onclick='javascript:document.getElementById("hid").style.visibility="hidden"'>
 <br>
 <div id="di"></div>
 </div>
+
 <input class=men type=button value="Reload" onclick='javascript:document.getElementById("hid1").style.visibility="visible"'>
+
 <div id=hid1>
 <input id=ic1 type=button value="x" onclick='javascript:document.getElementById("hid1").style.visibility="hidden"'>
 <br>
@@ -84,6 +94,32 @@ fieldset{width:44px;margin:0px;padding:0px;display:inline}
 </form>
 </div>
 </div>
+
+<input class="men2" type=button value="infos" onclick='javascript:document.getElementById("hid2").style.visibility="visible"'>
+<div id=hid2>
+<input id=ic2 type=button value="x" onclick='javascript:document.getElementById("hid2").style.visibility="hidden"'>
+<br>
+<div id="di2">
+Gildeninfos:<br>
+Leute macht Haken im VDG und Turm rein damit ihr eingeladet werden könnt wenn ihr afk seit.
+
+<br>
+<br>
+Tips:<br>
+Jeden Tag die Suchen machen. Ausdauer sowieTägliche Suche.[Achtung!! bei einer von beiden bekommt ihr auch Erfahrung]<br>
+Ihr bekommt bei beiden : Tägliche Kisten. Beim öffnen könnt ihr verschiedene Belohnungen bekommen. Hier geht es gezielt um Zeichen den Anrufs L.4
+Diese kann man sammeln und wenn ihr 10 habt geht mal zum Heroisch. Da könnt ihr Helden gewinnen.
+10 Zeichen oder 2500 Balen<br><br>
+Astrale, Edelsteine, Runen (eine kleine Hilfe)<br>
+Es gibt magische und nichtmagische Wesen so müssen auch die Astrale, Edelsteine, Runen,...verteilt werden. :-)
+<br><br>
+für Text bin ich dankbar und offen
+</div>
+</div>
+
+
+
+
 <audio id="idau" 
  src="http://archive.hoerspielbox.de/3-3-10002.mp3?_=1"
   type="audio/mp3" 
